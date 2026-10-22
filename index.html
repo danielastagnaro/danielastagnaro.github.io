@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniela Stagnaro · Product Owner & Product Designer</title>
+<meta name="description" content="Portfolio de Daniela Stagnaro: Product Owner y Product Designer. Discovery, IA generativa en producción, integraciones, pagos y diseño UX/UI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdf3df;          /* fondo crema */
+    --pink: #f7bdc5;        /* principal */
+    --pink-soft: #fbdde1;
+    --blue: #004aad;        /* secundario */
+    --ink: #1d2340;
+    --muted: #535a73;
+    --card: #fffaf0;
+    --line: #ecdcc0;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.65 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  a { color: var(--blue); }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.12; margin: 0; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-block: 14px; flex-wrap: wrap; }
+  nav .logo { font-family: "Fraunces", Georgia, serif; font-weight: 700; color: var(--blue); text-decoration: none; font-size: 1.1rem; }
+  nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav ul a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .92rem; }
+  nav ul a:hover { color: var(--blue); }
+
+  /* Hero */
+  .hero { padding-block: 64px 56px; }
+  .hero .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 44px; align-items: center; }
+  @media (max-width: 760px) { .hero .grid { grid-template-columns: 1fr; } .photo-wrap { order: -1; max-width: 260px; } }
+  .available { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 600; color: var(--blue); }
+  .available::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 4px #004aad22; }
+  .hero h1 { font-size: clamp(2.4rem, 5.4vw, 3.8rem); margin: 18px 0 10px; color: var(--ink); font-weight: 700; }
+  .hero h1 em { font-style: normal; color: var(--blue); background: linear-gradient(transparent 62%, var(--pink) 62%); }
+  .role { font-size: 1.1rem; font-weight: 600; color: var(--blue); margin: 0 0 14px; }
+  .lead { font-size: 1.08rem; color: var(--muted); margin: 0; max-width: 560px; }
+  .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+  .btn { display: inline-block; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: .95rem; text-decoration: none; transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--blue); color: #fff; }
+  .btn.pink { background: var(--pink); color: var(--ink); }
+  .btn.ghost { border: 1.5px solid var(--blue); color: var(--blue); }
+  .photo-wrap { position: relative; justify-self: center; width: 100%; max-width: 340px; aspect-ratio: 1; }
+  .photo-wrap::before { content: ""; position: absolute; inset: 6% -6% -6% 6%; background: var(--pink); border-radius: 46% 54% 52% 48% / 52% 46% 54% 48%; }
+  .photo-wrap img { position: relative; width: 100%; height: 100%; object-fit: cover; border-radius: 46% 54% 52% 48% / 52% 46% 54% 48%; border: 6px solid var(--card); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-top: 48px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; }
+  .stat b { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.7rem; color: var(--blue); }
+  .stat span { color: var(--muted); font-size: .9rem; }
+
+  section { padding-block: 64px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); color: var(--ink); }
+  h2 span { color: var(--blue); }
+  .section-intro { color: var(--muted); max-width: 620px; margin: 8px 0 0; }
+
+  /* Cases */
+  .case { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 18px; overflow: hidden; transition: box-shadow .2s ease; }
+  .case:hover { box-shadow: 0 10px 30px #004aad14; }
+  .case summary { list-style: none; cursor: pointer; padding: 26px 28px; display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center; }
+  .case summary::-webkit-details-marker { display: none; }
+  @media (max-width: 640px) { .case summary { grid-template-columns: 1fr; gap: 10px; } }
+  .num { font-family: "Fraunces", Georgia, serif; font-size: 2rem; color: var(--blue); background: var(--pink); width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; }
+  .meta { font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; color: var(--blue); font-weight: 600; }
+  .case h3 { font-size: 1.4rem; margin: 6px 0 6px; }
+  .case .desc { color: var(--muted); margin: 0; }
+  .view { font-weight: 600; color: var(--blue); white-space: nowrap; }
+  .view::after { content: " →"; display: inline-block; transition: transform .2s ease; }
+  details[open] .view::after { transform: rotate(90deg); }
+  details[open] .view-txt-closed { display: none; }
+  details:not([open]) .view-txt-open { display: none; }
+  .case-body { padding: 0 28px 28px; border-top: 1px dashed var(--line); }
+  .result { background: var(--pink-soft); border-radius: 12px; padding: 12px 16px; margin: 20px 0; font-weight: 500; }
+  .result b { color: var(--blue); }
+  .flow { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 20px; }
+  .flow .step { flex: 1 1 150px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: .88rem; }
+  .flow .step b { display: block; color: var(--blue); }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px 28px; }
+  .cols h4 { margin: 0 0 4px; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); }
+  .cols p, .cols ul { margin: 0; }
+  .cols ul { padding-left: 18px; }
+  .learn { margin: 20px 0 0; color: var(--muted); font-style: italic; }
+  .shots { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; margin-top: 26px; align-items: start; }
+  .shots.one { grid-template-columns: 1fr; justify-items: center; }
+  .shots.one .shot img { max-width: 300px; }
+  @media (max-width: 680px) { .shots { grid-template-columns: 1fr; } }
+  .shot { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .shot img { width: 100%; max-width: 420px; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px #004aad1f; background: #fff; }
+  .credit { font-size: .8rem; color: var(--muted); text-align: center; margin: 10px 0 0; }
+  .shot figcaption { font-size: .85rem; color: var(--muted); text-align: center; max-width: 420px; }
+  .shot figcaption b { color: var(--blue); }
+
+  /* Design cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .card .meta { display: block; margin-bottom: 6px; }
+  .card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+  .card p { color: var(--muted); margin: 0 0 10px; font-size: .95rem; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { background: var(--pink-soft); color: var(--ink); padding: 3px 10px; border-radius: 999px; font-size: .78rem; font-weight: 500; }
+
+
+  .featured { display: grid; grid-template-columns: 1fr 1.1fr; gap: 28px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; margin-bottom: 18px; }
+  @media (max-width: 760px) { .featured { grid-template-columns: 1fr; } }
+  .featured h3 { font-size: 1.5rem; margin: 6px 0 8px; }
+  .featured p { color: var(--muted); margin: 0 0 12px; }
+  .featured .small-note { font-size: .88rem; color: var(--blue); font-weight: 500; }
+  .featured .tags { margin-bottom: 14px; }
+  .featured a { font-weight: 600; }
+  .featured-frame { background: var(--pink-soft); border-radius: 16px; padding: 10px; }
+  .featured-frame iframe { width: 100%; height: 560px; border: 0; border-radius: 12px; background: #fff; display: block; }
+
+  /* Career */
+  .timeline { border-left: 3px solid var(--pink); margin-left: 8px; padding-left: 26px; }
+  .job { position: relative; padding-bottom: 26px; }
+  .job::before { content: ""; position: absolute; left: -35px; top: 6px; width: 15px; height: 15px; border-radius: 50%; background: var(--blue); border: 3px solid var(--bg); }
+  .job .when { font-size: .85rem; color: var(--muted); font-weight: 500; }
+  .job h3 { font-size: 1.15rem; margin: 2px 0; }
+  .job p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+  /* Process & skills */
+  .process { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; counter-reset: s; }
+  .process div { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+  .process div::before { counter-increment: s; content: "0" counter(s); font-family: "Fraunces", Georgia, serif; color: var(--blue); font-size: 1.4rem; display: block; }
+  .process h4 { margin: 4px 0; }
+  .process p { margin: 0; color: var(--muted); font-size: .92rem; }
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 34px; }
+  .skills h4 { margin: 0 0 8px; color: var(--blue); }
+
+  /* Facts */
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .fact { background: var(--pink); border-radius: var(--radius); padding: 22px; }
+  .fact b { font-family: "Fraunces", Georgia, serif; font-size: 1.15rem; display: block; margin-bottom: 4px; color: var(--ink); }
+
+  /* CTA / footer */
+  .cta { background: var(--blue); color: #fff; border-radius: 28px; padding: 44px 36px; text-align: center; }
+  .cta h2 { color: #fff; }
+  .cta p { color: #dbe6ff; max-width: 560px; margin: 12px auto 24px; }
+  .cta .btn.pink { color: var(--ink); }
+  .cta .btn.ghost { border-color: #fff; color: #fff; }
+  .cta .mail { display: block; margin-top: 18px; font-weight: 600; color: #fff; }
+  footer { padding-block: 30px 56px; color: var(--muted); font-size: .85rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">Daniela Stagnaro</a>
+    <ul>
+      <li><a href="#casos">Casos</a></li>
+      <li><a href="#diseno">Diseño</a></li>
+      <li><a href="#trayectoria">Trayectoria</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="available">Disponible para trabajar</span>
+        <h1>Construyo productos útiles para las personas usuarias: <em>fáciles de entender y usar.</em></h1>
+        <p class="role">Product Owner & Product Designer · Buenos Aires</p>
+        <p class="lead">Me importan las personas, por eso hace más de 4 años que trabajo en productos digitales, con base en diseño UX/UI.</p>
+        <p class="lead" style="margin-top:10px">Llevé a producción herramientas con IA generativa para vendedores de e-commerce, destrabé integraciones frenadas, y siempre trabajo desde el problema real del usuario: datos, entrevistas y validación antes de construir.</p>
+        <div class="links">
+          <a class="btn primary" href="#casos">Ver casos</a>
+          <a class="btn pink" href="https://www.linkedin.com/in/daniela-alejandra-stagnaro/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://www.behance.net/gallery/246074577/Product-Design-UXUI" target="_blank" rel="noopener">Behance</a>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <img src="daniela.jpg" alt="Retrato de Daniela Stagnaro, ilustrado con colores vibrantes">
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>2</b><span>funcionalidades con IA generativa en producción</span></div>
+      <div class="stat"><b>↓87%</b><span>bugs críticos en 6-8 meses</span></div>
+      <div class="stat"><b>~20 → 48</b><span>NPS en Argentina (más de 50 en Brasil y México)</span></div>
+      <div class="stat"><b>3 años → &lt;1</b><span>un proyecto frenado, llevado a producción</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="casos">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Casos de <span>estudio</span></h2>
+        <p class="section-intro">Proyectos reales, contados desde el problema hasta el resultado. Hacé click en cada uno para ver el detalle.</p>
+      </div>
+    </div>
+
+    <details class="case">
+      <summary>
+        <span class="num">1</span>
+        <div>
+          <span class="meta">E-commerce · SaaS B2B · IA generativa · 0→2</span>
+          <h3>La inteligencia que los usuarios eligen</h3>
+          <p class="desc">De un deseo del CEO a dos funcionalidades reales en producción para vendedores de Mercado Libre.</p>
+        </div>
+        <span class="view"><span class="view-txt-closed">Ver caso</span><span class="view-txt-open">Cerrar</span></span>
+      </summary>
+      <div class="case-body">
+        <div class="result"><b>Preguntas</b> y <b>Respuestas Automáticas</b>, dos funcionalidades con integración de IA generativa en producción. La segunda se adoptó <b>más rápido</b> gracias a la confianza ganada con la primera.</div>
+        <div class="flow">
+          <div class="step"><b>Discovery</b>Métricas de uso, entrevistas y encuestas</div>
+          <div class="step"><b>Preguntas: la IA asistida</b>Sugiere hasta 3 respuestas; el vendedor decide</div>
+          <div class="step"><b>Confianza</b>Revisión de coherencia y seguimiento de adopción</div>
+          <div class="step"><b>Respuestas Automáticas: la IA autónoma</b>Responde sola fuera de horario</div>
+        </div>
+        <div class="cols">
+          <div><h4>El problema</h4><p>A principios de 2025 la IA estaba pegando fuerte en las plataformas y el CEO quería implementarla en Real Trends. Luego del discovery encontramos un dolor concreto en los vendedores: si tardaban en responder a sus posibles compradores, bajaba su reputación en Mercado Libre.</p></div>
+          <div><h4>Qué hicimos</h4><ul><li>Discovery con datos para ver qué funcionalidades se usaban y cómo.</li><li>Entrevistas y encuestas para encontrar dónde la IA aportaba valor real.</li><li>Priorizamos la herramienta "Preguntas".</li></ul></div>
+          <div><h4>Decisiones clave</h4><ul><li><b>Preguntas, el usuario siempre en control:</b> la IA propone respuestas con una coincidencia de 65% o más y el vendedor elige, edita o escribe otra.</li><li><b>Respuestas Automáticas, automatizar después:</b> una vez que ganamos la confianza del usuario, lanzamos esta segunda etapa, que automatiza las respuestas en los horarios en que el vendedor no está.</li></ul></div>
+          <div><h4>Resultado</h4><p>Preguntas llegó a producción en 5-6 meses. Tras una reticencia inicial, la adopción creció de forma sostenida.</p></div>
+        </div>
+        <p class="learn">Aprendizaje: la gente adopta la IA cuando entiende qué hace, mantiene el control y ve resultados rápido.</p>
+        <div class="shots">
+          <figure class="shot">
+            <img src="preguntas-ia.jpg" alt="Herramienta Preguntas de Real Trends: respuestas sugeridas con inteligencia artificial para la pregunta de un comprador, cada una con su porcentaje de precisión">
+            <figcaption><b>Preguntas · IA asistida.</b> La IA sugiere respuestas a la pregunta de un comprador y muestra el porcentaje de precisión de cada una. El vendedor elige cuál insertar.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="respuestas-automaticas.jpg" alt="Configuración de Respuestas automáticas con IA en Real Trends: selección de días y precisión mínima para enviar una respuesta, moderada (más de 80%) o alta (más de 90%)">
+            <figcaption><b>Respuestas Automáticas · IA autónoma.</b> El vendedor configura en qué días responde la IA y la precisión mínima para enviar (+80% o +90%). La automatización sigue bajo su control.</figcaption>
+          </figure>
+        </div>
+        <p class="credit">Piezas publicitadas por Real Trends.</p>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <span class="num">2</span>
+        <div>
+          <span class="meta">Facturador · Integración por API · MVP</span>
+          <h3>Destrabar un proyecto frenado por 3 años</h3>
+          <p class="desc">Barajar y dar de nuevo: una integración con Contabilium que llegó a producción en menos de un año.</p>
+        </div>
+        <span class="view"><span class="view-txt-closed">Ver caso</span><span class="view-txt-open">Cerrar</span></span>
+      </summary>
+      <div class="case-body">
+        <div class="result">De <b>“herramienta frenada durante 3 años”</b> a <b>“herramienta en producción”</b> en menos de un año.</div>
+        <div class="cols"><div><h4>El problema</h4><p>Los vendedores solo podían facturar desde Mercado Libre. La integración con Contabilium estaba trabada porque el alcance había crecido demasiado.</p></div><div><h4>Qué hice</h4><ul><li>Ni bien ingresé a Real Trends, tomé el proyecto y lo reformulé desde cero.</li><li>Refiné las historias de usuario y sus criterios de aceptación.</li><li>Limpié lo diseñado hasta dejar un MVP.</li></ul></div><div><h4>Resultado</h4><p>Los vendedores pasaron a emitir facturas y notas de crédito y débito desde la plataforma.</p></div></div>
+        <p class="learn">Aprendizaje: un proyecto trabado por alcance se destraba recortando. Un MVP claro es lo que permite que se priorice.</p>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <span class="num">3</span>
+        <div>
+          <span class="meta">Priorización · NPS</span>
+          <h3>Disminución de bugs críticos: de 360 a 46 en menos de 8 meses</h3>
+          <p class="desc">Estudiar las métricas, priorizar con datos y tener en cuenta la fuerza de trabajo.</p>
+        </div>
+        <span class="view"><span class="view-txt-closed">Ver caso</span><span class="view-txt-open">Cerrar</span></span>
+      </summary>
+      <div class="case-body">
+        <div class="result">Bugs críticos <b>de 360 a 46 (↓87%)</b> en 6-8 meses. NPS de <b>~20 a más de 30</b>.</div>
+        <div class="cols"><div><h4>El problema</h4><p>Más de 300 bugs críticos que desarrollo no conseguía tomar para solucionarlos, y usuarios cada vez más disconformes con la plataforma.</p></div><div><h4>Qué hice</h4><ul><li>Prioricé con RICE, con peso en el esfuerzo.</li><li>Consolidé bugs duplicados.</li></ul></div><div><h4>Decisión clave</h4><p>Tras la limpieza de bugs duplicados, si ingresaba a desarrollo un proyecto de alguna herramienta afectada, le sumaba el bug para que primero se arreglara el error y después se avanzara en la novedad.</p></div><div><h4>Resultado</h4><p>Los bugs disminuyeron un 87% y la satisfacción del usuario comenzó a subir hasta superar los 30 puntos.</p></div></div>
+        <p class="learn">Aprendizaje: priorizar bien es encontrar la solución que no perjudique a ningún sector: ni a los usuarios, ni a desarrollo, ni al negocio.</p>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <span class="num">4</span>
+        <div>
+          <span class="meta">Proceso UX-Desarrollo · NPS</span>
+          <h3>Capacitar al equipo para ayudar a superarse</h3>
+          <p class="desc">Cambiar un proceso sin autoridad formal.</p>
+        </div>
+        <span class="view"><span class="view-txt-closed">Ver caso</span><span class="view-txt-open">Cerrar</span></span>
+      </summary>
+      <div class="case-body">
+        <div class="result">Desarrollos más ágiles, flujos más entendibles.</div>
+        <div class="cols"><div><h4>El problema</h4><p>Los diseños tanto de la app como de la web estaban planteados en pantallas consecutivas que complejizaban el entendimiento del equipo de desarrollo.</p></div><div><h4>Qué hice</h4><p>Con el UX Lead, capacité al equipo de diseño en la aplicación de user flows de punta a punta.</p></div><div><h4>Decisión clave</h4><p>Ante la resistencia al cambio, lo aplicamos primero en los proyectos más grandes, donde el beneficio se veía más.</p></div><div><h4>Resultado</h4><p>Desarrollos sin complicaciones de entendimiento. Los devs entendían los flujos de principio a fin, lo que hizo que los desarrollos fueran más veloces y eficientes. Incluso se detectaron errores en etapas muy tempranas. Junto con la reducción de bugs, el NPS en Argentina llegó a ~48.</p></div></div>
+        <p class="learn">Aprendizaje: un piloto de alto impacto convence más que imponer un proceso.</p>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <span class="num">5</span>
+        <div>
+          <span class="meta">Telco · App mobile · Insight de usuario</span>
+          <h3>Mis Consumos: una razón para usar la app</h3>
+          <p class="desc">Cómo un panel de gastos hizo que un segmento que no usaba la app empezara a hacerlo.</p>
+        </div>
+        <span class="view"><span class="view-txt-closed">Ver caso</span><span class="view-txt-open">Cerrar</span></span>
+      </summary>
+      <div class="case-body">
+        <div class="result">El NPS de la app Mi Claro pasó <b>de ~30 a más de 40</b>.</div>
+        <div class="cols">
+          <div><h4>El problema</h4><p>Los clientes prepagos recargaban desde el SMS con un link directo. La app no les daba nada que no tuvieran en otro lado.</p></div>
+          <div><h4>Qué hicimos</h4><ul><li>Métricas de uso y consultas en SQL.</li><li>Entrevistas para entender por qué no usaban la app.</li><li>Encuestas y tests A/B para validar antes de construir.</li></ul></div>
+          <div><h4>La solución</h4><p>"Mis Consumos": el detalle de gastos de la línea por día, semana y mes.</p></div>
+        </div>
+        <p class="learn">Aprendizaje: para que un segmento adopte un producto, hay que darle algo que no tenga en otro lado.</p>
+        <div class="shots one">
+          <figure class="shot">
+            <img src="mi-consumo.jpg" alt="Pantalla Mi Consumo de la app Mi Claro: internet disponible, gráfico circular del consumo del plan, fecha de renovación y crédito de recarga">
+            <figcaption><b>Mi Consumo · App Mi Claro.</b> El consumo de la línea de un vistazo: lo disponible, lo usado y cuándo se renueva.</figcaption>
+          </figure>
+        </div>
+        <p class="credit">Imagen publicada por Claro en sus páginas de ayuda.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="diseno">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Diseño <span>UX/UI</span> y proyectos</h2>
+        <p class="section-intro">Soy Diseñadora Gráfica y trabajé como diseñadora UX/UI y Product Owner. Mi estilo de trabajo es usuario-céntrico.</p>
+      </div>
+    </div>
+    <div class="featured">
+      <div class="featured-text">
+        <span class="meta">En curso · Ministerio de la Ciudad de Buenos Aires</span>
+        <h3>Gestor de Pedidos para emprendedores</h3>
+        <p>Diseño la app de una plataforma 0→1 de gestión de pedidos, ventas y stock en Figma, con componentes, auto-layout y variantes, y lidero su discovery: benchmark, plan de entrevistas y definición app vs. web.</p>
+        <p class="small-note">Prototipo navegable del inicio de sesión. Hacé click dentro para recorrerlo.</p>
+        <div class="tags"><span class="tag">Figma</span><span class="tag">Prototipo</span><span class="tag">Discovery 0→1</span><span class="tag">Design System</span></div>
+        <a href="https://www.figma.com/proto/a2nHMD7vr9pnxqKTfBb8An/Gestor-de-Pedidos?node-id=122-3675&viewport=327%2C1125%2C0.23&t=kr5U2Ps6bd41Vjez-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=122%3A3675&page-id=44%3A4930" target="_blank" rel="noopener">Abrir el prototipo en Figma →</a>
+      </div>
+      <div class="featured-frame">
+        <iframe title="Prototipo navegable del Gestor de Pedidos (login), en Figma" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fa2nHMD7vr9pnxqKTfBb8An%2FGestor-de-Pedidos%3Fnode-id%3D122-3675%26viewport%3D327%252C1125%252C0.23%26t%3Dkr5U2Ps6bd41Vjez-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed%26starting-point-node-id%3D122%253A3675%26page-id%3D44%253A4930" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="meta">Claro · App Mi Claro</span>
+        <h3>Diseñadora UX/UI</h3>
+        <p>Flujos y pantallas de la app mobile, librería de componentes en Atomic Design y transición al design system Atlantis.</p>
+        <div class="tags"><span class="tag">Atomic Design</span><span class="tag">Mobile</span></div>
+      </div>
+      <div class="card">
+        <span class="meta">Proyecto académico con cliente real</span>
+        <h3>Design system desde cero</h3>
+        <p>Para Puro Diseño (feria de diseño): un sistema aplicado con consistencia a app y web.</p>
+        <div class="tags"><span class="tag">Design System</span><span class="tag">App y web</span></div>
+      </div>
+      <div class="card">
+        <span class="meta">Behance</span>
+        <h3>Caso de Product Design UX/UI</h3>
+        <p>Research, flujos y diseño de interfaz, de punta a punta.</p>
+        <a href="https://www.behance.net/gallery/246074577/Product-Design-UXUI" target="_blank" rel="noopener">Ver en Behance →</a>
+      </div>
+      <div class="card">
+        <span class="meta">Proyectos propios · IA</span>
+        <h3>Agentes con n8n y Claude</h3>
+        <p>Un agente conectado a Jira que detecta bugs importantes y los avisa como urgentes; agentes que agendan citas y envían mails; prototipos con Claude Design y Claude Code.</p>
+        <div class="tags"><span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">Claude</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trayectoria">
+  <div class="wrap">
+    <div class="section-head"><h2>Trayectoria en <span>tecnología</span></h2></div>
+    <div class="timeline">
+      <div class="job"><span class="when">2026 · Presente</span><h3>Product Designer · Proyecto freelance</h3><p>Ministerio de la Ciudad de Buenos Aires</p></div>
+      <div class="job"><span class="when">Dic. 2023 · Feb. 2026</span><h3>Product Owner</h3><p>Real Trends · SaaS para vendedores de Mercado Libre (Argentina, Brasil y México)</p></div>
+      <div class="job"><span class="when">Mar. 2022 · 2023</span><h3>Product Owner</h3><p>Claro · App Mi Claro (Argentina, Uruguay y Paraguay)</p></div>
+      <div class="job"><span class="when">Fines 2021 · Mar. 2022</span><h3>Diseñadora UX/UI</h3><p>Claro · App Mi Claro</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2>Cómo <span>trabajo</span></h2></div>
+    <div class="process">
+      <div><h4>Entender</h4><p>Métricas, SQL, entrevistas y customer journeys para encontrar el problema real.</p></div>
+      <div><h4>Ordenar</h4><p>KPI Tree y Opportunity Solution Tree para conectar oportunidades con objetivos.</p></div>
+      <div><h4>Validar</h4><p>Hipótesis, tests A/B, Fake Door, Dogfooding y Early Adopters.</p></div>
+      <div><h4>Definir</h4><p>User flows, story maps e historias de usuario con criterios de aceptación.</p></div>
+      <div><h4>Acompañar</h4><p>Seguimiento después del lanzamiento para iterar del MVP al producto completo.</p></div>
+    </div>
+    <div class="skills">
+      <div><h4>Producto</h4><div class="tags"><span class="tag">Discovery</span><span class="tag">Roadmap</span><span class="tag">RICE · ICE</span><span class="tag">MVP</span></div></div>
+      <div><h4>Diseño</h4><div class="tags"><span class="tag">Figma</span><span class="tag">Adobe Creative Suite</span><span class="tag">Design Systems</span></div></div>
+      <div><h4>Datos</h4><div class="tags"><span class="tag">SQL</span><span class="tag">Amplitude</span><span class="tag">Power BI</span><span class="tag">Hotjar</span></div></div>
+      <div><h4>IA</h4><div class="tags"><span class="tag">LLMs en producción</span><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Gemini</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2>Datos sobre <span>mí</span></h2></div>
+    <div class="facts">
+      <div class="fact"><b>Periodista y diseñadora</b>Antes de producto estudié Periodismo y Diseño Gráfico. Por eso me importa tanto que cada pantalla y cada mensaje se entiendan.</div>
+      <div class="fact"><b>De ventas a producto</b>Empecé en Claro como asesora comercial, del lado del cliente. De ahí pasé a UX/UI y después a Product Owner.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="cta">
+      <h2>¿Hablamos?</h2>
+      <p>Busco un rol de Product Owner, Product Manager o Product Designer en equipos que trabajen en español, en Buenos Aires o remoto.</p>
+      <div class="links" style="justify-content:center">
+        <a class="btn pink" href="https://www.linkedin.com/in/daniela-alejandra-stagnaro/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://www.behance.net/gallery/246074577/Product-Design-UXUI" target="_blank" rel="noopener">Behance</a>
+      </div>
+      <span class="mail">daniela.stagnaro@gmail.com</span>
+    </div>
+  </div>
+</section>
+
+<footer>Daniela Stagnaro · Buenos Aires, Argentina · 2026<br>Los casos describen procesos y resultados de mi trabajo, sin información confidencial de las empresas.</footer>
+
+</body>
+</html>
